@@ -36,9 +36,8 @@ steps:
     projects: '**/*.csproj'    
 
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
-    command: test
-    projects: '**/webtest.csproj'
-    #arguments: '--configuration $(buildConfiguration)' 
-    arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
-    publishTestResults: true
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
